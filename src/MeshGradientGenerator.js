@@ -5,8 +5,8 @@ import { FFmpeg } from '@ffmpeg/ffmpeg';
 
 // UI Components
 const Slider = ({ label, min, max, step, value, onChange }) => (
-  <div className="mb-4 flex items-center">
-    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 w-24">{label}</label>
+  <div className="mb-4">
+    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{label}</label>
     <input
       type="range"
       min={min}
@@ -14,11 +14,12 @@ const Slider = ({ label, min, max, step, value, onChange }) => (
       step={step}
       value={value}
       onChange={(e) => onChange(parseFloat(e.target.value))}
-      className="h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer small-slider"
+      className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer small-slider" // Added class "small-slider"
     />
-    <span className="text-sm text-gray-500 dark:text-gray-400 ml-2">{value}</span>
+    <span className="text-sm text-gray-500 dark:text-gray-400">{value}</span>
   </div>
 );
+
 
 const Button = ({ onClick, disabled, children, variant = 'primary', className = '' }) => {
   const baseStyle = "px-3 py-2 rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 flex items-center";
@@ -70,10 +71,6 @@ const MeshGradientGenerator = () => {
   ]);
   const [blur, setBlur] = useState(40);
   const [opacity, setOpacity] = useState(0.5);
-  const [grain, setGrain] = useState(30);
-  const [contrast, setContrast] = useState(100);
-  const [brightness, setBrightness] = useState(100);
-  const [hue, setHue] = useState(0);
   const [isRecording, setIsRecording] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [frames, setFrames] = useState([]);
@@ -291,10 +288,6 @@ const MeshGradientGenerator = () => {
     ]);
     setBlur(40);
     setOpacity(0.5);
-    setGrain(30);
-    setContrast(100);
-    setBrightness(100);
-    setHue(0);
     setFrames([]);
     setGifUrl(null);
     setError(null);
@@ -313,7 +306,7 @@ const MeshGradientGenerator = () => {
           {isDarkMode ? <Sun className="mr-2 h-4 w-4" /> : <Moon className="mr-2 h-4 w-4" />}
           {isDarkMode ? 'Light Mode' : 'Dark Mode'}
         </Button>
-      </div><br></br>
+      </div>
       <div className="flex flex-col lg:flex-row gap-8">
         <div className="w-full lg:w-2/3">
           <div 
@@ -378,15 +371,12 @@ const MeshGradientGenerator = () => {
             <Plus className="mr-2 h-4 w-4" /> Add Point
           </Button>
         </div>
-      </div><br></br>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Slider label="Blur" min={0} max={100} step={1} value={blur} onChange={setBlur} />
-        <Slider label="Opacity" min={0} max={1} step={0.01} value={opacity} onChange={setOpacity} />
-        <Slider label="Grain" min={0} max={100} step={1} value={grain} onChange={setGrain} />
-        <Slider label="Contrast" min={0} max={200} step={1} value={contrast} onChange={setContrast} />
-        <Slider label="Brightness" min={0} max={200} step={1} value={brightness} onChange={setBrightness} />
-        <Slider label="Hue" min={0} max={360} step={1} value={hue} onChange={setHue} />
       </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <Slider label="Blur" min={0} max={100} step={1} value={blur} onChange={setBlur} />
+  <Slider label="Opacity" min={0} max={1} step={0.01} value={opacity} onChange={setOpacity} />
+</div>
+
     </div>
   );
 };
