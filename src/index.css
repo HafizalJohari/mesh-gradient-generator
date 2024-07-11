@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,67 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Mod Gelap */
+body.dark {
+  background-color: #1a202c;
+  color: #cbd5e0;
+}
+
+.dark .bg-gray-200 {
+  background-color: #2d3748;
+}
+
+.dark .text-gray-700 {
+  color: #cbd5e0;
+}
+
+.dark .border-gray-300 {
+  border-color: #2d3748;
+}
+
+.dark .bg-gray-200:hover {
+  background-color: #4a5568;
+}
+
+.dark .text-gray-500 {
+  color: #a0aec0;
+}
+
+.dark .text-gray-300 {
+  color: #e2e8f0;
+}
+
+.dark .bg-gray-700 {
+  background-color: #2d3748;
+}
+
+.dark .hover\:bg-gray-600:hover {
+  background-color: #4a5568;
+}
+
+.dark .border-gray-700 {
+  border-color: #4a5568;
+}
+
+.dark .bg-white {
+  background-color: #1a202c;
+}
+
+.dark .bg-gray-900 {
+  background-color: #1a202c;
+}
+
+.dark .bg-gray-800 {
+  background-color: #2d3748;
+}
+
+.dark .text-gray-300 {
+  color: #e2e8f0;
+}
+
+.small-slider {
+  width: 50%; /* Ubah saiz slider menjadi lebih kecil */
+  margin-left: 10px; /* Pastikan slider tidak terlalu rapat dengan label */
 }
