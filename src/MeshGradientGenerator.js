@@ -14,12 +14,11 @@ const Slider = ({ label, min, max, step, value, onChange }) => (
       step={step}
       value={value}
       onChange={(e) => onChange(parseFloat(e.target.value))}
-      className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer small-slider" // Added class "small-slider"
+      className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer"
     />
     <span className="text-sm text-gray-500 dark:text-gray-400">{value}</span>
   </div>
 );
-
 
 const Button = ({ onClick, disabled, children, variant = 'primary', className = '' }) => {
   const baseStyle = "px-3 py-2 rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 flex items-center";
@@ -373,10 +372,9 @@ const MeshGradientGenerator = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-  <Slider label="Blur" min={0} max={100} step={1} value={blur} onChange={setBlur} />
-  <Slider label="Opacity" min={0} max={1} step={0.01} value={opacity} onChange={setOpacity} />
-</div>
-
+        <Slider label="Blur" min={0} max={100} step={1} value={blur} onChange={setBlur} />
+        <Slider label="Opacity" min={0} max={1} step={0.01} value={opacity} onChange={setOpacity} />
+      </div>
     </div>
   );
 };
